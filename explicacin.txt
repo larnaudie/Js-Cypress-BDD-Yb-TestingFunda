@@ -1,0 +1,53 @@
+inicia npm init
+
+instala cypress pero la version 9.7.0
+npm install cypress@9.7.0 -dev -save
+
+inica cypress con 
+npx cypress open
+
+        Nos va a crear la estructura de cypress vieja, 
+        tendremos folders: fixtures, integration, plugins, support.
+
+luego elimina la carpeta por default 1-getting-started y 2-advanced-examples
+
+A continuacion, crea una carpeta llamada; TestCases
+
+vamos a crear la carpeta pageObjects, pero al mismo nivel que la carpeta cypress
+
+Luego vamos a crear un .js dentro de Test TestCases con los TestCases
+
+---------------------
+
+inicia codigo
+npm install --save-dev cypress-cucumber-preprocessor
+
+en cypress/plugins/index.js agregar:
+
+    const cucumber = require ("cypress-cucumber-preprocessor").default
+
+    module.export = (on, config) => {
+        on(`file-preprocessor`, cucumber())
+    }
+
+En cypress.json agregar:
+    {
+        "testFiles: "**/*.feature"
+    }
+
+En package.json agregar:
+
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": true
+    }
+
+En Integration, crea el .feature
+
+Cambia el nombre de TestCases al nombre que tiene el archivo .feature
+    Yo lo cambie de TestCases a amazon, por que asi nombre al .feature
+
+corre npx cypress open o npx cypress run
+
+
+
+
